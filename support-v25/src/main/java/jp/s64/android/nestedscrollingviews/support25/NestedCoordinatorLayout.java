@@ -17,6 +17,7 @@
 package jp.s64.android.nestedscrollingviews.support25;
 
 import android.content.Context;
+import android.os.Build;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.NestedScrollingChild;
 import android.support.v4.view.NestedScrollingChildHelper;
@@ -88,7 +89,9 @@ public class NestedCoordinatorLayout extends CoordinatorLayout implements Nested
 
     @Override
     public void setNestedScrollingEnabled(boolean enabled) {
-        super.setNestedScrollingEnabled(enabled);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            super.setNestedScrollingEnabled(enabled);
+        }
         mHelper.setNestedScrollingEnabled(enabled);
     }
 
