@@ -89,58 +89,57 @@ public class NestedCoordinatorLayout extends CoordinatorLayout implements Nested
 
     @Override
     public void setNestedScrollingEnabled(boolean enabled) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             super.setNestedScrollingEnabled(enabled);
-        }
         mHelper.setNestedScrollingEnabled(enabled);
     }
 
     @Override
     public boolean isNestedScrollingEnabled() {
-        boolean executedSuper = super.isNestedScrollingEnabled();
+        boolean executedSuper = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? super.isNestedScrollingEnabled() : false;
         return mHelper.isNestedScrollingEnabled() || executedSuper;
     }
 
     @Override
     public boolean startNestedScroll(int axes) {
-
-        boolean executedSuper = super.startNestedScroll(axes);
+        boolean executedSuper = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? super.startNestedScroll(axes) : false;
         return mHelper.startNestedScroll(axes) || executedSuper;
     }
 
     @Override
     public void stopNestedScroll() {
-        super.stopNestedScroll();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            super.stopNestedScroll();
         mHelper.stopNestedScroll();
     }
 
     @Override
     public boolean hasNestedScrollingParent() {
-        boolean executedSuper = super.hasNestedScrollingParent();
+        boolean executedSuper = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? super.hasNestedScrollingParent() : false;
         return mHelper.hasNestedScrollingParent() || executedSuper;
     }
 
     @Override
     public boolean dispatchNestedScroll(int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int[] offsetInWindow) {
-        boolean executedSuper = super.dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, offsetInWindow);
+        boolean executedSuper = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? super.dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, offsetInWindow) : false;
         return mHelper.dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, offsetInWindow) || executedSuper;
     }
 
     @Override
     public boolean dispatchNestedPreScroll(int dx, int dy, int[] consumed, int[] offsetInWindow) {
-        boolean executedSuper = super.dispatchNestedPreScroll(dx, dy, consumed, offsetInWindow);
+        boolean executedSuper = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? super.dispatchNestedPreScroll(dx, dy, consumed, offsetInWindow) : false;
         return mHelper.dispatchNestedPreScroll(dx, dy, consumed, offsetInWindow) || executedSuper;
     }
 
     @Override
     public boolean dispatchNestedFling(float velocityX, float velocityY, boolean consumed) {
-        boolean executedSuper = super.dispatchNestedFling(velocityX, velocityY, consumed);
+        boolean executedSuper = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? super.dispatchNestedFling(velocityX, velocityY, consumed) : false;
         return mHelper.dispatchNestedFling(velocityX, velocityY, consumed) || executedSuper;
     }
 
     @Override
     public boolean dispatchNestedPreFling(float velocityX, float velocityY) {
-        boolean executedSuper = super.dispatchNestedPreFling(velocityX, velocityY);
+        boolean executedSuper = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? super.dispatchNestedPreFling(velocityX, velocityY) : false;
         return mHelper.dispatchNestedPreFling(velocityX, velocityY) || executedSuper;
     }
 
