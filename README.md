@@ -5,6 +5,8 @@ Custom views of NestedScrollingChild implementation.
 This is contains below components:
 
 - NestedCoordinatorLayout
+- NestedScrollingViewActions
+- NestedScrollToAction
 
 ## Usages
 
