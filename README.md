@@ -15,7 +15,7 @@ Add following lines to your buildscripts.
 ```groovy
 buildscript {
     ext {
-        nested_scrolling_views_version = '0.0.4'
+        nested_scrolling_views_version = '0.0.5'
     }
 }
 ```
