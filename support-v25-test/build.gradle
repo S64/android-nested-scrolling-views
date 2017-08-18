@@ -29,13 +29,11 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    androidTestCompile("com.android.support.test.espresso:espresso-core:${espresso_version}", {
+    compile("com.android.support.test.espresso:espresso-core:${espresso_version}", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
     compile "com.android.support:design:${android_support_library_version}"
-
-    testCompile "junit:junit:${junit_version}"
 }
 
 bintray {
@@ -46,7 +44,7 @@ bintray {
 
     pkg {
         repo = default_repo
-        name = 'android-nested-scrolling-views-support-v25'
+        name = 'android-nested-scrolling-views-support-v25-test'
         licenses = default_licenses
         websiteUrl = site_url
         issueTrackerUrl = issues_url

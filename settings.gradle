@@ -1,1 +1,1 @@
-include ':support-v25'
+include ':support-v25', ':support-v25-test'
